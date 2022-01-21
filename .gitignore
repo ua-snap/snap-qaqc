@@ -1,0 +1,12 @@
+# anaconda-project
+envs/
+
+# jupyter checkpoints
+.ipynb_checkpoints
+
+# ignore __pycache__ from local imports
+**/__pycache__/
+
+# weird DS_Store files from macOS
+.DS_Store
+._.DS_Store
