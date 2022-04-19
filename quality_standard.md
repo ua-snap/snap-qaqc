@@ -28,21 +28,17 @@ This depends on both the file type and software.
 
 1.1.6. Opening the files in QGIS displays them as expected in relationship to another vetted geospatial dataset  
 
-**Note** - QGIS shall serve as a proxy for the ESRI suite of “typical software”, given it is FOSS and cross-platform.  
-
-#### NCL  
-
-1.1.7. Opening the files into NCL correctly georeferences the data files..TBC  
+**Note** - QGIS shall serve as a proxy for the ESRI suite of “typical software”, given it is FOSS and cross-platform.  We may include ArcGIS directly in the future.
 
 #### Panoply
 
-1.1.8. Opening the files into NCL correctly georeferences the data files..TBC  
+1.1.7. Opening the files into Panoply results in a viewable, usable form of the dataset.  Panoply can understand the spatial (and potentially temporal) dimensions of the dataset, along with clearly-identified variables for use in configuring the Panoply visualizations.
 
 ### 1.2. GeoTIFF
 
 #### GDAL
 
-1.2.1. Opening the files with the gdalinfo command line tool returns header info with expected coordinate system  
+1.2.1. Opening the files with the `gdalinfo` command line tool returns header info with expected coordinate system.  GDAL understands the spatial structure of the file, all bands present, and a workable `NODATA` value.
 
 #### Python `rasterio`
 
@@ -60,6 +56,10 @@ This depends on both the file type and software.
 
 1.3.1. The files open and display data using the `pandas.read_csv` function  
 
+#### Excel
+
+1.3.2.  The CSV file can be opened successfully in Excel, and the data match the expected format.  There are no missing columns or irregular rows due to incorrect CSV quoting or formatting.
+
 ### 1.4. All file types
 
 1.4.1. All files have at least *some* valid data  
@@ -67,9 +67,9 @@ This depends on both the file type and software.
 ## 2. Data are within a valid range and have been statistically screened
 
 2.1. Data are within a valid range based on common sense (e.g., no negative values for a precipitation dataset unless a specific scaling / transformation is defined in the metadata)  
-2.2. A statistical screening* has occurred to identify potentially problematic data files that may be indicative of corruption, human error, etc. All results of this shall be readily available for reference.  
 
-*This screening will be highly context-dependent so it is difficult to make general remarks here, but the following things will have been evaluated and results discussed with domain experts where feasible.
+2.2. A statistical screening has occurred to identify potentially problematic data files that may be indicative of corruption, human error, etc. All results of this shall be readily available for reference.  This screening will be highly context-dependent so it is difficult to make general remarks here, but the following things will have been evaluated and results discussed with domain experts where feasible:
+
 * intrafile summary stats (mean/min/max/range/variance/quartiles)
 * interfile summary stats (mean/min/max/range/variance/quartiles)
 * histogram analysis
@@ -103,7 +103,8 @@ This depends on both the file type and software.
 This section applies to datasets consisting of multiple files.
 
 5.1. File names shall be structured in a consistent format, preferring the use of underscores for separating logical descriptors  
-5.2. Variable names used in files shall be consistent  
+5.2. Variable names used in files shall be consistent
+5.3. No special characters (`\`, `/`, `;`, etc) are present which may cause difficulty across different operating systems.
 
 ## Appendix 1: SNAP data type & nodata conventions
 
