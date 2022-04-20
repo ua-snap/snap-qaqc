@@ -11,7 +11,7 @@ setup(
     description="A package providing functions and notebooks for conducting QA/QC on geospatial data products",
     long_description=open("README.md").read(),
     install_requires=[
-        "gdal", "xarray", "rasterio", "numpy", "pandas", "matplotlib"
+        "gdal>3.3.0", "xarray", "rasterio", "numpy", "pandas", "matplotlib"
     ],
     scripts=["bin/startqaqc.py"],
 )
